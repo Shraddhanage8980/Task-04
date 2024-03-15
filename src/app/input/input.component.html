@@ -1,0 +1,14 @@
+
+<div class="card flex justify-content-center">
+    <div class="mt-5 text-center">
+        <form #myForm="ngForm">
+            <input type="number" placeholder="Box 1" name="box1" (blur)="blurEve1($event)" [(ngModel)]="box1" (input)="validation()">
+            <input type="number" class="mx-4" name="box2" (blur)="blurEve1($event)" placeholder="Box 2" [(ngModel)]="box2" (input)="validation()">
+            <button class="btn btn-primary" (click)="createChart()">Creat Chart</button>
+        </form>
+    </div>
+    <div *ngIf="errorMessage " class="text-danger">
+        The total value cannot exceed 100.
+    </div>
+    <p-chart type="pie" [data]="basicData" [responsive]="false"></p-chart>
+</div>
